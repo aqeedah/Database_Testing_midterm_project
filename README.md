@@ -146,7 +146,7 @@ create table review (review_id int primary key,
 		          book_id int, foreign key (book_id) references books(book_id),
 		          review_date date,
 		          review_comment text, 
-		          ratings int);```
+		          ratings int);````
 
 ➡️## Insertion into the tables
 
@@ -177,7 +177,7 @@ insert into authors (author_id,first_name,last_name,email_address)
 			(21,'Alyson','Schafer','hello@schafer.com'),
 			(22,'Dennis','Lee','dennis.lee@gmail.com'),
 			(23,'Ryan','Andrews','ryan1994@gmail.com'),
-			(24,'Karen','Inglis','kpinglis@press.com');``
+			(24,'Karen','Inglis','kpinglis@press.com');````
 
 | author_id | first_name | last_name, | email_address        |
 |-----------|------------|------------|----------------------|
@@ -743,7 +743,7 @@ async function main() {
 		  await pool.end();
 		}	
 }
-main().catch(console.error);``
+main().catch(console.error);````
 
 ➡️## References 
 https://markdown.land/markdown-code-block
