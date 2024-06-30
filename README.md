@@ -19,6 +19,7 @@
 
 ➡️## Creation of Table 
 ### Author table
+
 ```create table authors (author_id int primary key, 
            	    first_name varchar (20),
                     last_name varchar(20),
