@@ -21,12 +21,6 @@
 
 ### Author Table
 
-````SQL
-create table authors (author_id int primary key, 
-           	    first_name varchar (20),
-                    last_name varchar(20),
-                   email_address varchar(20));``
-
 | # Attributes  | # Type       | # Description          |
 |---------------|--------------|------------------------|
 | author_id     | int          | Primary key            |
@@ -36,26 +30,12 @@ create table authors (author_id int primary key,
 
 ### publishers Table
 
-````SQL
-`create table publishers (publisher_id int primary key,
-          publisher_name varchar (50));```
-	  
 | # Attributes  | # Type       | # Description             |
 |---------------|--------------|---------------------------|
 | publisher_id  | int          | Primary key               |
 | publisher_name| varchar (50) | Publisher’s name    	   |
 
 ### books table
-
-``create table books (book_id int primary key,
-                       book_title varchar (30), 
-                       book_genre varchar(20),
-                       book_type varchar(20), 
-                       publication_date date,
-                       price decimal(10,2), 
-                       author_id int, foreign key (author_id) references authors(author_id),     
-                       publisher_id int, foreign key (publisher_id) references publishers(publisher_id),
-                       isbn varchar(15));``
 
 | # Attributes     | # Type         | # Description            			       |
 |------------------|----------------|--------------------------------------------------|
@@ -68,16 +48,8 @@ create table authors (author_id int primary key,
 | author_id        | int            | Foreign key              			       |
 | publisher_id     | int            | Foreign key              			       |
 | isbn             | varchar (15)   | Book’s isbn code        			       |
-           
-###customer table
 
-``create table customer (customer_id int primary key, 
-                         first_name varchar(20), 
-                         last_name varchar(20), 
-                         contact_number varchar(20), 
-                         address varchar(100),
-                         total_spent_amount decimal(10,2),
-                         registration_date date );``
+### customer table
 
 | # Attributes       | # Type         | # Description                |
 |--------------------|----------------|------------------------------|
@@ -89,12 +61,8 @@ create table authors (author_id int primary key,
 | total_spent_amount | Decimal (10,2) | Total Spent amountby Customer|               
 | registration_date  | Date           | Customer’s registration date |
 
-### orders table
 
-``create table orders (order_id int primary key, 
-                        customer_id int, foreign key (customer_id) references customer(customer_id), 
-	                order_date date, 
-                        bill_amount decimal (10,2));``
+### orders table
 
 | # Attributes| # Type         | # Description |
 |-------------|----------------|---------------|
@@ -104,13 +72,6 @@ create table authors (author_id int primary key,
 | bill_amount | Decimal (10,2) | Bill’s amount |
 
 ### order_item table
-
-
-``create table order_item (order_item_id int primary key, 
-			    order_id int, foreign key (order_id) references orders(order_id), 
-			    book_id int, foreign key (book_id) references books(book_id), 
-			    quantity int, 
-			    price decimal(10,2));``
 
 | # Attributes  | # Type         | # Description    |
 |---------------|----------------|------------------|
@@ -122,15 +83,6 @@ create table authors (author_id int primary key,
 
 ### review table
 
-
-``create table review (review_id int primary key, 
-		          customer_id int, foreign key (customer_id) references customer(customer_id), 
-		          book_id int, foreign key (book_id) references books(book_id),
-		          review_date date,
-		          review_comment text, 
-		          ratings int);``
-
-
 | # Attributes   | # Type | Description               |
 |----------------|--------|---------------------------|
 | review_id      | int    | Primary key               |
@@ -140,12 +92,68 @@ create table authors (author_id int primary key,
 | review_comment | Text   | Feedback of customer      |
 | ratings        | int    | Ratings given by customer |
 
+```SQL
+--creating author table
+create table authors (author_id int primary key, 
+           	    first_name varchar (20),
+                    last_name varchar(20),
+                   email_address varchar(20));
+
+
+
+-- Creating publishers Table
+create table publishers (publisher_id int primary key,
+          publisher_name varchar (50));
+
+
+-- Creating books table
+create table books (book_id int primary key,
+                       book_title varchar (30), 
+                       book_genre varchar(20),
+                       book_type varchar(20), 
+                       publication_date date,
+                       price decimal(10,2), 
+                       author_id int, foreign key (author_id) references authors(author_id),     
+                       publisher_id int, foreign key (publisher_id) references publishers(publisher_id),
+                       isbn varchar(15));
+           
+-- Creating customer table
+create table customer (customer_id int primary key, 
+                         first_name varchar(20), 
+                         last_name varchar(20), 
+                         contact_number varchar(20), 
+                         address varchar(100),
+                         total_spent_amount decimal(10,2),
+                         registration_date date );
+
+
+-- Creating orders table
+create table orders (order_id int primary key, 
+                        customer_id int, foreign key (customer_id) references customer(customer_id), 
+	                order_date date, 
+                        bill_amount decimal (10,2));
+
+-- Creating order_item table
+create table order_item (order_item_id int primary key, 
+			    order_id int, foreign key (order_id) references orders(order_id), 
+			    book_id int, foreign key (book_id) references books(book_id), 
+			    quantity int, 
+			    price decimal(10,2));
+
+-- Creating review table
+create table review (review_id int primary key, 
+			customer_id int, foreign key (customer_id) references customer(customer_id), 
+		          book_id int, foreign key (book_id) references books(book_id),
+		          review_date date,
+		          review_comment text, 
+		          ratings int);```
 
 ➡️## Insertion into the tables
 
 ### Author table
 
-``insert into authors (author_id,first_name,last_name,email_address)
+```SQL
+insert into authors (author_id,first_name,last_name,email_address)
 		values (1,'Emily','johnson','emily@author.com'),
 			(2,'Rebecca','Yarros','rebros@author.com'),
        			(3,'Katherine','paterson','katherin@author.com'),
