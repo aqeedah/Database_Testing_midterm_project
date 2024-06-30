@@ -15,6 +15,266 @@
 --> Insertion into remaining table and CRUD Operation / DDL & DML is done by **Prachi Thakral**.
 --> Solution of asked requirements and typescript is done by **Akida Laliwala**.
 
+#Creation of Table 
+#Author table:
+```create table authors (author_id int primary key, 
+           	    first_name varchar (20),
+                    last_name varchar(20),
+                   email_address varchar(20));```
+
+| # Attributes  | # Type       | # Description          |
+|---------------|--------------|------------------------|
+| author_id     | int          | Primary key            |
+| first_name    | varchar (20) | Author’s first name    |
+| last_name     | varchar (20) | Author’s last name     |
+| email_address | varchar (20) | Author’s email address |
+
+#publishers table
+```create table publishers (publisher_id int primary key,
+          publisher_name varchar (50));```
+| Attributes    | Type         | Description               |
+|---------------|--------------|---------------------------|
+| publisher_id  | int          | Primary key               |
+| publisher_name| varchar (50) | Publisher’s name    	  |
+
+#books table
+```create table books (book_id int primary key,
+                                         book_title varchar (30), 
+                                         book_genre varchar(20),
+                                         book_type varchar(20), 
+                                         publication_date date,
+                                         price decimal(10,2), 
+                                         author_id int, foreign key (author_id) references authors(author_id),     
+ 		         publisher_id int, foreign key (publisher_id) references publishers(publisher_id),
+		         isbn varchar(15));```
+
+| # Attributes     | # Type         | # Description            |
+|------------------|----------------|--------------------------|
+| book_id          | int            | Primary key              |
+| book_title       | varchar (30)   | Title of the book        |
+| book_genre       | varchar (20)   | Book’s genre             |
+| book_type        | varchar (20)   | ‘physical-book’or’e-book’|
+    Or ‘Audio-book’          |
+| Publication_date | Date           | Book’s publication date  |
+| price            | Decimal (10,2) | Book’s price             |
+| author_id        | int            | Foreign key              |
+| publisher_id     | int            | Foreign key              |
+| isbn             | varchar (15)   | Book’s isbn code         |
+           
+#customer table
+```create table customer (customer_id int primary key, 
+                                                 first_name varchar(20), 
+                                                 last_name varchar(20), 
+                                                 contact_number varchar(20), 
+                                                 address varchar(100),
+                                                total_spent_amount decimal(10,2),
+                                                registration_date date );```
+
+| # Attributes       | # Type         | # Description                |
+|--------------------|----------------|------------------------------|
+| customer_id        | int            | Primary key                  |
+| first_name         | varchar (20)   | Customer’s first name        |
+| last_name          | varchar (20)   | Customer’s last name         |
+| contact_number     | varchar (20)   | Customer’s contact number    |
+| address            | Varchar (100)  | Customer’s address           |
+| total_spent_amount | Decimal (10,2) | Total Spent amountby Customer|               
+| registration_date  | Date           | Customer’s registration date |
+
+#orders table
+```create table orders (order_id int primary key, 
+                                           customer_id int, foreign key (customer_id) references customer(customer_id), 
+	                           order_date date, 
+           bill_amount decimal (10,2));```
+
+| # Attributes| # Type         | # Description |
+|-------------|----------------|---------------|
+| order_id    | int            | Primary key   |
+| customer_id | int            | Foreign key   |
+| order_date  | date           | Order’s date  |
+| bill_amount | Decimal (10,2) | Bill’s amount |
+
+#order_item table
+```create table order_item (order_item_id int primary key, 
+			    order_id int, foreign key (order_id) references orders(order_id), 
+			    book_id int, foreign key (book_id) references books(book_id), 
+			    quantity int, 
+			    price decimal(10,2));```
+
+| # Attributes  | # Type         | # Description    |
+|---------------|----------------|------------------|
+| order_item_id | int            | Primary key      |
+| order_id      | int            | Foreign key      |
+| book_id       | int            | Foreign key      |
+| quantity      | int            | Quantity of books|
+| Price         | Decimal (10,2) | Book’s price     |
+#review table
+```create table review (review_id int primary key, 
+		          customer_id int, foreign key (customer_id) references customer(customer_id), 
+		          book_id int, foreign key (book_id) references books(book_id),
+		          review_date date,
+		          review_comment text, 
+		          ratings int);```
+| # Attributes   | # Type | Description          	  |
+|----------------|--------|---------------------------|
+| review_id      | int    | Primary key          	  |
+| customer_id    | int    | Foreign key               |
+| book_id        | int    | Foreign key               |
+| review_date    | date   | Date of feedback          |
+| review_comment | Text   | Feedback of customer 	   |
+| ratings        | int    | Ratings given by customer |
+
+
+# Insertion into the tables
+#Author table:
+```insert into authors (author_id,first_name,last_name,email_address)
+   	                 values (1,'Emily','johnson','emily@author.com'),
+	                      	(2,'Rebecca','Yarros','rebros@author.com'),
+       	(3,'Katherine','paterson','katherin@author.com'),
+       	(4,'Kristin','Hannah','weintra@stmartin.com'),
+  		       	(5,'Ashley','Elston','rstevenson@prh.com'),
+(6,'sarah J.','Mass','sarah@stmartin.com'),			      (7,'Freida','McFadden','freida@author.com'),
+(8,'Victoria','Aveyard','vicyard@author.com'),
+ (9,'Walter',' Isaacson','water@acson.com'),
+	 (10,'Jojo','Moyes','jojomoyes@author.com'),
+(11,'Gregg','Olsen','gregg@author.com'),					   (12,'Leigh','Bardugo','leigh@author.com'),
+(13,'Greg','Iles','giles34@gmail.com'),					(14,'Armistead','Maupin','john@armistead.com'),					(15,'David','Levithan','david@levithan.com'),					(16,'April','Henry','April@mysteries.com'),					(17,'Cory','Doctorow','doc@craphound.com'),					(18,'Chanel','Cleeton','chanelc@cleeton.com'),
+ (19,'J.R.R','Tolkien','jrrtol@gmail.com'),
+ (20,'Nalini','Nalini','nalini@singh.com'),					(21,'Alyson','Schafer','hello@schafer.com'),					(22,'Dennis','Lee','dennis.lee@gmail.com'),					(23,'Ryan','Andrews','ryan1994@gmail.com'),					(24,'Karen','Inglis','kpinglis@press.com');```
+
+| author_id | first_name | last_name, | email_address        |
+|-----------|------------|------------|----------------------|
+| 1         | Emily      | Johnson    | emily@author.com     |
+| 2         | Rebecca    | Yarros     | rebros@author.com    |
+| 3         | Katherine  | Paterson   | katherin@author.com  |
+| 4         | Kristin    | Hannah     | weintra@stmartin.com |
+| 5         | Ashley     | Elston     | rstevenson@prh.com   |
+| 6         | Sarah J.   | Mass       | sarah@stmartin.com   |
+| 7         | Freida     | McFadden   | freida@author.com    |
+| 8         | Victoria   | Aveyard    | vicyard@author.com   |
+| 9         | Walter     | Isaacson   | water@acson.com      |
+| 10        | Jojo       | Moyes      | jojomoyes@author.com |
+| 11        | Gregg      | Olsen      | gregg@author.com     |
+| 12        | Leigh      | Bardugo    | leigh@author.com     |
+| 13        | Greg       | Iles       | giles34@gmail.com    |
+| 14        | Armistead  | Maupin     | john@armistead.com   |
+| 15        | David      | Levithan   | david@levithan.com   |
+| 16        | April      | Henry      | April@mysteries.com  |
+| 17        | Cory       | Doctorow   | doc@craphound.com    |
+| 18        | Chanel     | Cleeton    | chanelc@cleeton.com  |
+| 19        | J.R.R      | Tolkien    | jrrtol@gmail.com     |
+| 20        | Nalini     | Nalini     | nalini@singh.com     |
+| 21        | Alyson     | Schafer    | hello@schafer.com    |
+| 22        | Dennis     | Lee        | dennis.lee@gmail.com |
+| 23        | Ryan       | Andrews    | ryan1994@gmail.com   |
+| 24        | Karen      | Inglis     | kpinglis@press.com   |
+
+#publishers table
+```insert into publishers (publisher_id,publisher_name)
+		values (1,'Penguin Publishing Group'),
+		               (2, 'Red Tower Books'),
+               (3,'HarperCollins'),
+               (4,'St. Martins Press'),
+               (5,'Pamela Dorman Books'),
+               (6,'Bloomsburry Publishing'),
+ 		               (7,'Poisoned Pen Press'),
+(8,'HarperTeen'),
+ (9,'Simon & Schuster'),
+(10,'A Reeses Book Club Pick'),
+ (11,'Thomas & Mercer'),
+ (12,'Imprint'),
+(13,'William Morrow Paperbacks'),
+ (14,'Harper Perennial'),
+ (15,'Ember'),
+ (16,'Square Fish'),
+ (17,'First Second'),
+ (18,'Berkley'),
+ (19,'HarperCollinsChildren’sBooks'),
+ (20,'Berkley'),
+ (21,'Collins'),
+ (22,'HarperCollins'),
+ (23,'First Second'),
+ (24,'Well Said Press');```
+|publisher_id  | publisher_name                 |
+|--------------|--------------------------------|
+| 1            | Penguin Publishing Group       |
+| 2            | Red Tower Books                |
+| 3            | HarperCollins                  |
+| 4            | St. Martins Press              |
+| 5            | Pamela Dorman Books            |
+| 6            | Bloomsbury Publishing          |
+| 7            | Poisoned Pen Press             |
+| 8            | HarperTeen                     |
+| 9            | Simon & Schuster               |
+| 10           | A Reese's Book Club Pick       |
+| 11           | Thomas & Mercer                |
+| 12           | Imprint                        |
+| 13           | William Morrow Paperbacks      |
+| 14           | Harper Perennial               |
+| 15           | Ember                          |
+| 16           | Square Fish                    |
+| 17           | First Second                   |
+| 18           | Berkley                        |
+| 19           | HarperCollins Children’s Books |
+| 20           | Berkley (duplicated)           |
+| 21           | Collins                        |
+| 22           | HarperCollins (duplicated)     |
+| 23           | First Second (duplicated)      |
+| 24           | Well Said Press                |
+
+#books table
+```insert into books (book_id,book_title,book_genre,book_type,publication_date,price,author_id,publisher_id,isbn)
+ values (1,'Funny Story','Romance','physical','2022-01-01',4.31,1,1,'978-0593441282'),
+                (2,'Fourth wing','Fantacy','physical','2023-05-02',24,2,2,'9781649374042'),
+ (3,'Bridge to Terabithia','Fiction','audio book','2017-05-02',10.0,3,3,'9780064401845'),
+ (4,'The Women','Historical Fiction','e-book','2024-02-06',28,4,4,'1250178630'),
+ (5,'First Lie Wins','Thriller','e-book','2024-01-02',16,5,5,'0593492919'),
+ (6,'House of Flame and Shadow','Fantacy','Audio book','2024-01-30',20,6,6,'1635574102'),
+ (7,'The Teacher','Thriller','Physical book','2024-02-06',38,7,7,'1728296218'),
+(8,'Red Queen','Fantasy','physical book','2015-02-10',20,8,8,'0062310631'),
+ (9,'Elon Musk','Realist Literature','Audio book','2023-09-23',35,9,9,'1982181281'),
+ (10,'The Giver of Stars','mystery','e-book','2019-10-19',28,10,10,'0593152263'),
+(11,'If You Tell','Realist Literature','physical book','2019-12-01',28.40,11,11,'1542005221'),
+ (12,'Rule of Wolves','Fantasy','e-book','2021-03-30',26.13,12,12,'125014230X'),
+(13,'The Bone Tree','Thriller','Physical book','2016-09-13',21.99,13,13,'978-0062311122'),
+ (14,'Goodbye Barbary Lane','Humor','e-book','2016-12-06',24.99,14,14,'978-0062563774'),
+ (15,'David Levithans Every Day','Romance','Audio book','2013-09-10',18.99,15,15,'978-0307931894'),
+ (16,'Girl, Stolen','Mystery','Physical book','2012-03-13',15.99,16,16,'978-0312674755'),
+ (17,'In Real Life','Realistic Fiction','e-book','2014-10-14',17.14,17,17,'978-1596436589'),
+ (18,'Next Year in Havana','Historical Fiction','Audio book','2018-02-16',19.74,18,18,'978-0399586682'),
+ (19,'The Hobbit','Fantasy','Physical book','2012-06-26',12.99,19,19,'978-0007458424'),
+ (20,'Archangels Blade','Romance','e-book','2011-09-06',9.99,20,20,'978-0425243916'),
+ (21,'Aint Misbehavin','Non-fiction','Audio book','2014-03-25',21.0,21,21,'978-1443427609'),
+ (22,'Garbage Delight','Poetry','Physical book','2012-05-22',10.79,22,22,'978-1443411554'),
+ (23,'This Was Our Pact','Graphic','e-book','2019-06-11',21.99,23,23,'978-1626720534'),
+ (24,'The Secret Lake','Adventure Fiction','Audio book','2011-08-04',10.55,24,24,'978-0956932303');```
+| book_id | book_title                | book_genre         | book_type     | publication_date | price | author_id | Publisher_id | isbn           |
+|---------|---------------------------|--------------------|---------------|------------------|-------|-----------|--------------|----------------|
+| 1       | Funny Story               | Romance            | physical      | publication_date | 4.31  | 1         | 1            | 978-0593441282 |
+| 2       | Fourth Wing               | Fantasy            | physical      | 2022-01-01       | 24.00 | 2         | 2            | 9781649374042  |
+| 3       | Bridge to Terabithia      | Fiction            | audio book    | 2023-05-02       | 10.00 | 3         | 3            | 9780064401845  |
+| 4       | The Women                 | Historical Fiction | e-book        | 2017-05-02       | 28.00 | 4         | 4            | 1250178630     |
+| 5       | First Lie Wins            | Thriller           | e-book        | 2024-02-06       | 16.00 | 5         | 5            | 0593492919     |
+| 6       | House of Flame and Shadow | Fantasy            | Audio book    | 2024-01-02       | 20.00 | 6         | 6            | 1635574102     |
+| 7       | The Teacher               | Thriller           | Physical book | 2024-01-30       | 38.00 | 7         | 7            | 1728296218     |
+| 8       | Red Queen                 | Fantasy            | physical book | 2024-02-06       | 20.00 | 8         | 8            | 0062310631     |
+| 9       | Elon Musk                 | Realist Literature | Audio book    | 2015-02-10       | 35.00 | 9         | 9            | 1982181281     |
+| 10      | The Giver of Stars        | Mystery            | e-book        | 2023-09-23       | 28.00 | 10        | 10           | 0593152263     |
+| 11      | If You Tell               | Realist Literature | physical book | 2019-10-19       | 28.40 | 11        | 11           | 1542005221     |
+| 12      | Rule of Wolves            | Fantasy            | e-book        | 2019-12-01       | 26.13 | 12        | 12           | 125014230X     |
+| 13      | The Bone Tree             | Thriller           | Physical book | 2021-03-30       | 21.99 | 13        | 13           | 978-0062311122 |
+| 14      | Goodbye Barbary Lane      | Humor              | e-book        | 2016-09-13       | 24.99 | 14        | 14           | 978-0062563774 |
+| 15      | David Levithans Every Day | Romance            | Audio book    | 2016-12-06       | 18.99 | 15        | 15           | 978-0307931894 |
+| 16      | Girl, Stolen              | Mystery            | Physical book | 2013-09-10       | 15.99 | 16        | 16           | 978-0312674755 |
+| 17      | In Real Life              | Realistic Fiction  | e-book        | 2012-03-13       | 17.14 | 17        | 17           | 978-1596436589 |
+| 18      | Next Year in Havana       | Historical Fiction | Audio book    | 2014-10-14       | 19.74 | 18        | 18           | 978-0399586682 |
+| 19      | The Hobbit                | Fantasy            | Physical book | 2018-02-16       | 12.99 | 19        | 19           | 978-0007458424 |
+| 20      | Archangels Blade          | Romance            | e-book        | 2012-06-26       | 9.99  | 20        | 20           | 978-0425243916 |
+| 21      | Aint Misbehavin           | Non-fiction        | Audio book    | 2011-09-06       | 21.00 | 21        | 21           | 978-1443427609 |
+| 22      | Garbage Delight           | Poetry             | Physical book | 2014-03-25       | 10.79 | 22        | 22           | 978-1443411554 |
+| 23      | This Was Our Pact         | Graphic            | e-book        | 2012-05-22       | 21.99 | 23        | 23           | 978-1626720534 |
+| 24      | The Secret Lake           | Adventure Fiction  | Audio book    | 2019-06-11       | 10.55 | 24        | 24           | 978-0956932303 |
+
+
 #customer table
 ```insert into customer (customer_id,first_name,last_name,contact_number,address,total_spent_amount,registration_date)  values (101,'Akida','Aazam',437-9632145,'41,king street,waterloo,ON',700.70,'2010-01-25'),   (102,'Prachi','Thakral',437-1236985,'48,erb street,waterloo,ON',500.50,'2011-02-20'),
 (103,'Divtej','Singh',752-1239687,'56,philip street,waterloo,ON',300.30,'2012-03-27'),
