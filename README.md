@@ -12,12 +12,13 @@
 
 ## Duties of team member
 --> Creation of tables and Insertion till 'books' table is done by **Divtej Pal Singh**.
+
 --> Insertion into remaining table and CRUD Operation / DDL & DML is done by **Prachi Thakral**.
+
 --> Solution of asked requirements and typescript is done by **Akida Laliwala**.
 
 ➡️## Creation of Table 
 ### Author table
-
 ```create table authors (author_id int primary key, 
            	    first_name varchar (20),
                     last_name varchar(20),
