@@ -19,7 +19,7 @@
 
 ➡️## Creation of Table 
 
-### Author table
+### Author Table
 
 ````SQL
 create table authors (author_id int primary key, 
@@ -34,13 +34,13 @@ create table authors (author_id int primary key,
 | last_name     | varchar (20) | Author’s last name     |
 | email_address | varchar (20) | Author’s email address |
 
-### publishers table
+### publishers Table
 
 ````SQL
 `create table publishers (publisher_id int primary key,
           publisher_name varchar (50));```
 	  
-| Attributes    | Type         | Description               |
+| # Attributes  | # Type       | # Description             |
 |---------------|--------------|---------------------------|
 | publisher_id  | int          | Primary key               |
 | publisher_name| varchar (50) | Publisher’s name    	   |
