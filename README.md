@@ -11,19 +11,21 @@
 
 
 ## Duties of team member
---> Creation of tables and Insertion till 'books' table is done by **Divtej Pal Singh**.
+-- Creation of tables and Insertion till 'books' table is done by **Divtej Pal Singh**.
 
---> Insertion into remaining table and CRUD Operation / DDL & DML is done by **Prachi Thakral**.
+-- Insertion into remaining table and CRUD Operation / DDL & DML is done by **Prachi Thakral**.
 
---> Solution of asked requirements and typescript is done by **Akida Laliwala**.
+-- Solution of asked requirements and typescript is done by **Akida Laliwala**.
 
 ➡️## Creation of Table 
+
 ### Author table
 
-```create table authors (author_id int primary key, 
+````SQL
+create table authors (author_id int primary key, 
            	    first_name varchar (20),
                     last_name varchar(20),
-                   email_address varchar(20));```
+                   email_address varchar(20));``
 
 | # Attributes  | # Type       | # Description          |
 |---------------|--------------|------------------------|
@@ -34,8 +36,10 @@
 
 ### publishers table
 
-```create table publishers (publisher_id int primary key,
+````SQL
+`create table publishers (publisher_id int primary key,
           publisher_name varchar (50));```
+	  
 | Attributes    | Type         | Description               |
 |---------------|--------------|---------------------------|
 | publisher_id  | int          | Primary key               |
@@ -43,7 +47,7 @@
 
 ### books table
 
-```create table books (book_id int primary key,
+``create table books (book_id int primary key,
                        book_title varchar (30), 
                        book_genre varchar(20),
                        book_type varchar(20), 
@@ -51,30 +55,29 @@
                        price decimal(10,2), 
                        author_id int, foreign key (author_id) references authors(author_id),     
                        publisher_id int, foreign key (publisher_id) references publishers(publisher_id),
-                       isbn varchar(15));```
+                       isbn varchar(15));``
 
-| # Attributes     | # Type         | # Description            |
-|------------------|----------------|--------------------------|
-| book_id          | int            | Primary key              |
-| book_title       | varchar (30)   | Title of the book        |
-| book_genre       | varchar (20)   | Book’s genre             |
-| book_type        | varchar (20)   | ‘physical-book’or’e-book’|
-    					Or ‘Audio-book’        |
-| Publication_date | Date           | Book’s publication date  |
-| price            | Decimal (10,2) | Book’s price             |
-| author_id        | int            | Foreign key              |
-| publisher_id     | int            | Foreign key              |
-| isbn             | varchar (15)   | Book’s isbn code         |
+| # Attributes     | # Type         | # Description            			       |
+|------------------|----------------|--------------------------------------------------|
+| book_id          | int            | Primary key              			       |
+| book_title       | varchar (30)   | Title of the book        			       |
+| book_genre       | varchar (20)   | Book’s genre              		       |
+| book_type        | varchar (20)   | ‘physical-book’or’e-book’ Or ‘Audio-book’        |
+| Publication_date | Date           | Book’s publication date  			       |
+| price            | Decimal (10,2) | Book’s price            			       |
+| author_id        | int            | Foreign key              			       |
+| publisher_id     | int            | Foreign key              			       |
+| isbn             | varchar (15)   | Book’s isbn code        			       |
            
 ###customer table
 
-```create table customer (customer_id int primary key, 
+``create table customer (customer_id int primary key, 
                          first_name varchar(20), 
                          last_name varchar(20), 
                          contact_number varchar(20), 
                          address varchar(100),
                          total_spent_amount decimal(10,2),
-                         registration_date date );```
+                         registration_date date );``
 
 | # Attributes       | # Type         | # Description                |
 |--------------------|----------------|------------------------------|
@@ -88,10 +91,10 @@
 
 ### orders table
 
-```create table orders (order_id int primary key, 
+``create table orders (order_id int primary key, 
                         customer_id int, foreign key (customer_id) references customer(customer_id), 
 	                order_date date, 
-                        bill_amount decimal (10,2));```
+                        bill_amount decimal (10,2));``
 
 | # Attributes| # Type         | # Description |
 |-------------|----------------|---------------|
@@ -103,11 +106,11 @@
 ### order_item table
 
 
-```create table order_item (order_item_id int primary key, 
+``create table order_item (order_item_id int primary key, 
 			    order_id int, foreign key (order_id) references orders(order_id), 
 			    book_id int, foreign key (book_id) references books(book_id), 
 			    quantity int, 
-			    price decimal(10,2));```
+			    price decimal(10,2));``
 
 | # Attributes  | # Type         | # Description    |
 |---------------|----------------|------------------|
@@ -120,12 +123,12 @@
 ### review table
 
 
-```create table review (review_id int primary key, 
+``create table review (review_id int primary key, 
 		          customer_id int, foreign key (customer_id) references customer(customer_id), 
 		          book_id int, foreign key (book_id) references books(book_id),
 		          review_date date,
 		          review_comment text, 
-		          ratings int);```
+		          ratings int);``
 
 
 | # Attributes   | # Type | Description               |
@@ -142,7 +145,7 @@
 
 ### Author table
 
-```insert into authors (author_id,first_name,last_name,email_address)
+``insert into authors (author_id,first_name,last_name,email_address)
 		values (1,'Emily','johnson','emily@author.com'),
 			(2,'Rebecca','Yarros','rebros@author.com'),
        			(3,'Katherine','paterson','katherin@author.com'),
@@ -166,7 +169,7 @@
 			(21,'Alyson','Schafer','hello@schafer.com'),
 			(22,'Dennis','Lee','dennis.lee@gmail.com'),
 			(23,'Ryan','Andrews','ryan1994@gmail.com'),
-			(24,'Karen','Inglis','kpinglis@press.com');```
+			(24,'Karen','Inglis','kpinglis@press.com');``
 
 | author_id | first_name | last_name, | email_address        |
 |-----------|------------|------------|----------------------|
@@ -197,7 +200,7 @@
 
 ### publishers table
 
-```insert into publishers (publisher_id,publisher_name)
+``insert into publishers (publisher_id,publisher_name)
 		values (1,'Penguin Publishing Group'),
 			(2, 'Red Tower Books'),
                		(3,'HarperCollins'),
@@ -221,7 +224,7 @@
  			(21,'Collins'),
  			(22,'HarperCollins'),
  			(23,'First Second'),
- 			(24,'Well Said Press');```
+ 			(24,'Well Said Press');``
 
 |publisher_id  | publisher_name                 |
 |--------------|--------------------------------|
@@ -252,7 +255,7 @@
 
 ### books table
 
-```insert into books (book_id,book_title,book_genre,book_type,publication_date,price,author_id,publisher_id,isbn)
+``insert into books (book_id,book_title,book_genre,book_type,publication_date,price,author_id,publisher_id,isbn)
               values (1,'Funny Story','Romance','physical','2022-01-01',4.31,1,1,'978-0593441282'),
                      (2,'Fourth wing','Fantacy','physical','2023-05-02',24,2,2,'9781649374042'),
                      (3,'Bridge to Terabithia','Fiction','audio book','2017-05-02',10.0,3,3,'9780064401845'),
@@ -276,7 +279,7 @@
 		     (21,'Aint Misbehavin','Non-fiction','Audio book','2014-03-25',21.0,21,21,'978-1443427609'),
 		     (22,'Garbage Delight','Poetry','Physical book','2012-05-22',10.79,22,22,'978-1443411554'),
 		     (23,'This Was Our Pact','Graphic','e-book','2019-06-11',21.99,23,23,'978-1626720534'),
-		     (24,'The Secret Lake','Adventure Fiction','Audio book','2011-08-04',10.55,24,24,'978-0956932303');```
+		     (24,'The Secret Lake','Adventure Fiction','Audio book','2011-08-04',10.55,24,24,'978-0956932303');``
 
 | book_id | book_title                | book_genre         | book_type     | publication_date | price | author_id | Publisher_id | isbn           |
 |---------|---------------------------|--------------------|---------------|------------------|-------|-----------|--------------|----------------|
@@ -308,8 +311,9 @@
 
 ### customer table
 
-```insert into customer (customer_id,first_name,last_name,contact_number,address,total_spent_amount,registration_date)
-		 values (101,'Akida','Aazam',437-9632145,'41,king street,waterloo,ON',700.70,'2010-01-25'),   (102,'Prachi','Thakral',437-1236985,'48,erb street,waterloo,ON',500.50,'2011-02-20'),
+``insert into customer (customer_id,first_name,last_name,contact_number,address,total_spent_amount,registration_date)
+		 values (101,'Akida','Aazam',437-9632145,'41,king street,waterloo,ON',700.70,'2010-01-25'),  
+   			(102,'Prachi','Thakral',437-1236985,'48,erb street,waterloo,ON',500.50,'2011-02-20'),
 			(103,'Divtej','Singh',752-1239687,'56,philip street,waterloo,ON',300.30,'2012-03-27'),
  			(104,'Swati','Sansarwal',720-1254789,'125,queen street,waterloo,ON',450.30,'2013-05-19'),
  			(105,'Mayank','Sharma',778-9875463,'78,lester street,waterloo,ON',235.40,'2014-06-15'),
@@ -322,7 +326,7 @@
  			(112,'David','Wilson',958-4578961,'90,regina street,toronto,ON',400.30,'2023-03-30'),
 			(113,'Kiara','Davis',452-7854963,'98,Columbia street,Hamilton,ON',600.60,'2022-12-27'),
  			(114,'Nayra','Patinson',658-5285749,'86,Linclon street,Brandford,ON',250.70,'2023-05-03'),
-  			(115,'Kunj','Singh',124-8574961,'89,water street,Cambridge,ON',374.17,'2022-11-11');```
+  			(115,'Kunj','Singh',124-8574961,'89,water street,Cambridge,ON',374.17,'2022-11-11');``
 
 | customer_id | first_name | last_name | contact_number | address                        | total_spent_amount | registration_date |
 |:-----------:|:----------:|:---------:|:--------------:|:------------------------------:|:------------------:|:-----------------:|
@@ -344,7 +348,7 @@
 
 ### orders table
 
-```insert into orders (order_id, customer_id, order_date, bill_amount)
+``insert into orders (order_id, customer_id, order_date, bill_amount)
                values (001,101,'2023-01-25',100.11),
                       (002,102,'2022-02-02',50.11),
 		      (003,103,'2021-03-14',120.10),
@@ -359,7 +363,7 @@
 		      (012,112,'2018-12-12',40.40),
 		      (013,113,'2023-01-13',111.11),
 		      (014,114,'2022-02-22',99.99),
-		      (015,115,'2021-02-19',130.13);```
+		      (015,115,'2021-02-19',130.13);``
 
 | order_id | customer_id | order_date | bill_amount |
 |:--------:|:-----------:|:----------:|:-----------:|
@@ -382,7 +386,7 @@
 
 ### order_item table
 
-```insert into order_item (order_item_id, order_id, book_id, quantity, price)
+``insert into order_item (order_item_id, order_id, book_id, quantity, price)
 	values (01, 001, 2, 2, 48),
 		(02, 002, 5, 1, 16),
 		(03, 003, 3, 2, 20),
@@ -397,7 +401,7 @@
 		(12, 012, 21, 2, 42),
 		(13, 013, 16, 3, 51),
 		(14, 014, 9, 4, 140),
-		(15, 015, 8, 2, 40);```
+		(15, 015, 8, 2, 40);``
 
 | order_item_id | order_id | book_id | quantity | price  |
 |:-------------:|:--------:|:-------:|:--------:|:------:|
@@ -419,7 +423,7 @@
 
 ### review table
 
-```insert into review (review_id, customer_id, book_id, review_date, review_comment, ratings)
+``insert into review (review_id, customer_id, book_id, review_date, review_comment, ratings)
  		values (1,101,2,'2023-09-25','Excellent Book!',4),
 	               (2,102,5,'2023-01-02','Nice Book!',3),
 	               (3,103,3,'2022-05-15','Quite slow!',2),
@@ -434,7 +438,7 @@
 	   		(12,112,21,'2019-12-12','Quite slow!',2),
 	   		(13,113,16,'2023-07-15','Nice book to Recommend',5),
 	   		(14,114,9,'2023-01-27','Excellent Book!',4),
-	   		(15,115,8,'2022-08-20','Nice Book!',3);```
+	   		(15,115,8,'2022-08-20','Nice Book!',3);``
 
 | review_id | customer_id | book_id | review_date | review_comment         | ratings |
 | 1         | 101         | 2       | 2023-09-25  | Excellent Book!        | 4       |
@@ -458,15 +462,15 @@
 
 1.Creation of database:
 
-```create database online_book_store;```
+``create database online_book_store;``
 
 2.Alter table in database:
 
-```drop table public.books;```
+``drop table public.books;``
 
 3.Drop database:
 
-```drop database online_book_store;```
+``drop database online_book_store;``
 
 ➡️## DML Operations/ CRUD Operation
 
@@ -476,21 +480,21 @@
 
 2.Read from customer table:
 
-```select * from customer where customer_id = 116;```
+``select * from customer where customer_id = 116;``
 
 3.Update into customer table:
 
-``` update customer 
+``update customer 
 	set total_spent_amount = 100
-	where customer_id = 116;```
+	where customer_id = 116;``
 
 4.Delete from customer table:
 
-``` delete from customer where customer_id = 116;```
+``delete from customer where customer_id = 116;``
 
 • Updating into orders table:
 
-```update orders
+``update orders
 set order_date = case
    	 when order_id = 001 then '2023-12-31'
     	when order_id = 002 then '2024-01-01'
@@ -499,18 +503,18 @@ set order_date = case
 	when order_id = 014 then '2023-09-11'
     ELSE order_date
 END
-WHERE order_id IN (001,002,008,013,014);```
+WHERE order_id IN (001,002,008,013,014);``
 
 ➡️## Solution of asked Requirements        
 
 1.Details of authers of same genre book published in the last 10 years.
 
-```select a.author_id,a.first_name,a.last_name, count(book_id) as BookCount
+``select a.author_id,a.first_name,a.last_name, count(book_id) as BookCount
 from books b
 join authors a on b.author_id = a.author_id
 where b.book_genre = 'Fantasy' and publication_date >= current_date - interval '10 years'
 group by a.author_id,a.first_name,a.last_name
-having count(b.book_id) > 0;```
+having count(b.book_id) > 0;``
 
 | ID | author_id | first_name | last_name | bookcount|
 |:--:|:---------:|:----------:|:---------:|:--------:|
@@ -521,12 +525,12 @@ having count(b.book_id) > 0;```
 
 2.Loyal customer who has spent more than $51 in the last year
 
-```select c.customer_id, c.first_name, c.last_name, sum(o.bill_amount) as TotalSpent
+``select c.customer_id, c.first_name, c.last_name, sum(o.bill_amount) as TotalSpent
 from customer c
 join orders o on c.customer_id = o.customer_id
 where o.order_date >= current_date - interval '1 year'
 group by c.customer_id
-having sum(o.bill_amount) > 51;```
+having sum(o.bill_amount) > 51;``
 
 
 | ID | customer_id | first_name | last_name | totalspent |
@@ -540,11 +544,11 @@ having sum(o.bill_amount) > 51;```
 
 3.Books which have better user ratings than average
 
-```select b.book_id, b.book_title, avg(r.ratings) as AvgRating
+``select b.book_id, b.book_title, avg(r.ratings) as AvgRating
 from Books b
 join review r on b.book_id = r.book_id
 group by b.book_id
-having avg(r.ratings) > (select avg(ratings) from review);```
+having avg(r.ratings) > (select avg(ratings) from review);``
 
 | ID | book_id | book_title     | avgrating            |
 |:--:|:-------:|:--------------:|:--------------------:|
@@ -558,12 +562,12 @@ having avg(r.ratings) > (select avg(ratings) from review);```
 
 4.Most popular genre by sales
 
-```select book_genre, sum(order_item.quantity) as total_sales
+``select book_genre, sum(order_item.quantity) as total_sales
 from books
 join order_item on books.book_id = order_item.book_id
 group by book_genre
 order by total_sales desc
-limit 5;```
+limit 5;``
 
 | ID | Book_genre           | total_sales|
 |----|----------------------|------------|
@@ -575,12 +579,12 @@ limit 5;```
 
 5.10 most recent review posted by customers
 
-```select r.review_id, r.book_id, b.book_title, r.customer_id, c.first_name, r.ratings, r.review_comment, r.review_date
+``select r.review_id, r.book_id, b.book_title, r.customer_id, c.first_name, r.ratings, r.review_comment, r.review_date
 from review r
 join books b on r.book_id = b.book_id
 join customer c on r.customer_id = c.customer_id
 order by r.review_date desc
-limit 10;```
+limit 10;``
 
 |ID|review_id | book_id | book_title        |customer_id |first_name |ratings |review_comments             |review_date |
 |--|----------|---------|-------------------|------------|-----------|--------|----------------------------|------------|
@@ -599,7 +603,7 @@ limit 10;```
     
 💠###connection.ts
 
-```import { Pool } from 'pg';
+``import { Pool } from 'pg';
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
@@ -610,11 +614,11 @@ const pool = new Pool({
 pool.on('connect', (client) => {
   client.query('SET search_path TO public');
 });
-export default pool;```
+export default pool;``
 
 💠### customer.ts
 
-```import { Pool, QueryResult } from 'pg';
+``import { Pool, QueryResult } from 'pg';
    import pool from './connection';
    const TABLE_NAME = 'public.customer';
    export interface customer_detail {
@@ -662,11 +666,11 @@ export class customer_store implements customers {
 	const result: QueryResult = await this.pool.query(query, [customer_id]);
 	return result.rowCount !== null && result.rowCount > 0; 
 	}
-}```
+}``
 
 💠### customer_crud_operation.ts
 
-```import pool from './connection';
+``import pool from './connection';
         import { customer_store, customer_detail } from './customer';
         async function checkDatabaseAndTable() {
 	const client = await pool.connect();
@@ -731,7 +735,7 @@ async function main() {
 		  await pool.end();
 		}	
 }
-main().catch(console.error);```
+main().catch(console.error);``
 
 ➡️## References 
 https://markdown.land/markdown-code-block
