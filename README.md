@@ -148,11 +148,10 @@ create table review (review_id int primary key,
 		          review_comment text, 
 		          ratings int);````
 
-➡️## Insertion into the tables
+-- Insertion into the tables
 
-### Author table
+-- Author table
 
-```SQL
 insert into authors (author_id,first_name,last_name,email_address)
 		values (1,'Emily','johnson','emily@author.com'),
 			(2,'Rebecca','Yarros','rebros@author.com'),
@@ -177,7 +176,8 @@ insert into authors (author_id,first_name,last_name,email_address)
 			(21,'Alyson','Schafer','hello@schafer.com'),
 			(22,'Dennis','Lee','dennis.lee@gmail.com'),
 			(23,'Ryan','Andrews','ryan1994@gmail.com'),
-			(24,'Karen','Inglis','kpinglis@press.com');````
+			(24,'Karen','Inglis','kpinglis@press.com');
+
 
 | author_id | first_name | last_name, | email_address        |
 |-----------|------------|------------|----------------------|
