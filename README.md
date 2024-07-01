@@ -17,7 +17,7 @@
 
 -- Solution of asked requirements and typescript is done by **Akida Laliwala**.
 
-➡️## Creation of Table 
+## Creation of Table 
 
 ### Author Table
 
@@ -235,6 +235,8 @@ insert into publishers (publisher_id,publisher_name)
  			(23,'First Second'),
  			(24,'Well Said Press');
 
+-- This is sample data table of publisher
+
 |publisher_id  | publisher_name                 |
 |--------------|--------------------------------|
 | 1            | Penguin Publishing Group       |
@@ -289,6 +291,8 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
 		     (23,'This Was Our Pact','Graphic','e-book','2019-06-11',21.99,23,23,'978-1626720534'),
 		     (24,'The Secret Lake','Adventure Fiction','Audio book','2011-08-04',10.55,24,24,'978-0956932303');
 
+-- This is sample data table of books
+
 | book_id | book_title                | book_genre         | book_type     | publication_date | price | author_id | Publisher_id | isbn           |
 |---------|---------------------------|--------------------|---------------|------------------|-------|-----------|--------------|----------------|
 | 1       | Funny Story               | Romance            | physical      | publication_date | 4.31  | 1         | 1            | 978-0593441282 |
@@ -316,7 +320,7 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
 | 23      | This Was Our Pact         | Graphic            | e-book        | 2012-05-22       | 21.99 | 23        | 23           | 978-1626720534 |
 | 24      | The Secret Lake           | Adventure Fiction  | Audio book    | 2019-06-11       | 10.55 | 24        | 24           | 978-0956932303 |
 
-
+-- From this part ,Insertion of table and CRUD operation is done by prachi Thakral.
 -- customer table
 
 insert into customer (customer_id,first_name,last_name,contact_number,address,total_spent_amount,registration_date)
@@ -335,6 +339,8 @@ insert into customer (customer_id,first_name,last_name,contact_number,address,to
 			(113,'Kiara','Davis',452-7854963,'98,Columbia street,Hamilton,ON',600.60,'2022-12-27'),
  			(114,'Nayra','Patinson',658-5285749,'86,Linclon street,Brandford,ON',250.70,'2023-05-03'),
   			(115,'Kunj','Singh',124-8574961,'89,water street,Cambridge,ON',374.17,'2022-11-11');
+
+-- This is sample data table of customer
 
 | customer_id | first_name | last_name | contact_number | address                        | total_spent_amount | registration_date |
 |:-----------:|:----------:|:---------:|:--------------:|:------------------------------:|:------------------:|:-----------------:|
@@ -372,6 +378,8 @@ insert into orders (order_id, customer_id, order_date, bill_amount)
 		      (013,113,'2023-01-13',111.11),
 		      (014,114,'2022-02-22',99.99),
 		      (015,115,'2021-02-19',130.13);
+
+-- This is sample data table of orders
 
 | order_id | customer_id | order_date | bill_amount |
 |:--------:|:-----------:|:----------:|:-----------:|
@@ -411,6 +419,8 @@ insert into order_item (order_item_id, order_id, book_id, quantity, price)
 		(14, 014, 9, 4, 140),
 		(15, 015, 8, 2, 40);
 
+-- This is sample data table of order_item
+
 | order_item_id | order_id | book_id | quantity | price  |
 |:-------------:|:--------:|:-------:|:--------:|:------:|
 | 01            | 001      | 2       | 2        | 48.00  |
@@ -447,6 +457,8 @@ insert into review (review_id, customer_id, book_id, review_date, review_comment
 	   		(13,113,16,'2023-07-15','Nice book to Recommend',5),
 	   		(14,114,9,'2023-01-27','Excellent Book!',4),
 	   		(15,115,8,'2022-08-20','Nice Book!',3);
+
+-- This is sample data table of review
 
 | review_id | customer_id | book_id | review_date | review_comment         | ratings |
 | 1         | 101         | 2       | 2023-09-25  | Excellent Book!        | 4       |
@@ -502,6 +514,8 @@ set order_date = case
     ELSE order_date
 END
 WHERE order_id IN (001,002,008,013,014);
+
+-- From this part, solution of asked requirements and Typescript Interface is done by Akida Laliwala.
 
 -- Solution of asked Requirements        
 
@@ -737,6 +751,7 @@ main().catch(console.error);
 
 ## References 
 https://markdown.land/markdown-code-block
+
 https://www.typescriptlang.org/docs/handbook/interfaces.html
 
 
