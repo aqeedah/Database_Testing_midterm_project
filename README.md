@@ -207,7 +207,7 @@ insert into authors (author_id,first_name,last_name,email_address)
 | 23        | Ryan       | Andrews    | ryan1994@gmail.com   |
 | 24        | Karen      | Inglis     | kpinglis@press.com   |
 
---publishers table
+-- publishers table
 
 insert into publishers (publisher_id,publisher_name)
 		values (1,'Penguin Publishing Group'),
@@ -467,39 +467,30 @@ insert into review (review_id, customer_id, book_id, review_date, review_comment
 
 
 -- DDL Operations
+-- Creation of database:
+   create database online_book_store;
 
-1.Creation of database:
+-- Alter table in database:
+  drop table public.books;
 
-create database online_book_store;
-
-2.Alter table in database:
-
-drop table public.books;
-
-3.Drop database:
-
-drop database online_book_store;
+-- Drop database:
+  drop database online_book_store;
 
 -- DML Operations/ CRUD Operation
-
-1.Insert into customer table:
-
+-- Insert into customer table:
 insert into customer (customer_id,first_name,last_name,contact_number,address,total_spent_amount,registration_date)  values (116,'Edward','Coolin',437-8574259,'41,Lenster street,waterloo,ON',50.70,'2024-05-25');  
-2.Read from customer table:
+-- Read from customer table:
+   select * from customer where customer_id = 116;
 
-select * from customer where customer_id = 116;
-
-3.Update into customer table:
-
-update customer 
+-- Update into customer table:
+   update customer 
 	set total_spent_amount = 100
 	where customer_id = 116;
 
-4.Delete from customer table:
+-- Delete from customer table:
+  delete from customer where customer_id = 116;
 
-delete from customer where customer_id = 116;
-
-• Updating into orders table:
+-- Updating into orders table:
 
 update orders
 set order_date = case
@@ -514,7 +505,7 @@ WHERE order_id IN (001,002,008,013,014);
 
 -- Solution of asked Requirements        
 
-1.Details of authers of same genre book published in the last 10 years.
+-- 1.Details of authers of same genre book published in the last 10 years.
 select a.author_id,a.first_name,a.last_name, count(book_id) as BookCount
 from books b
 join authors a on b.author_id = a.author_id
@@ -529,7 +520,7 @@ having count(b.book_id) > 0;
 | 3  | 8         | Victoria   | Aveyard   | 1        |
 | 4  | 12        | Leigh      | Bardugo   | 1        |
 
-2.Loyal customer who has spent more than $51 in the last year
+-- 2.Loyal customer who has spent more than $51 in the last year
 
 select c.customer_id, c.first_name, c.last_name, sum(o.bill_amount) as TotalSpent
 from customer c
@@ -548,7 +539,7 @@ having sum(o.bill_amount) > 51;
 | 5  | 107         | Zaroon     | Zunaid    | 60.16      |
 
 
-3.Books which have better user ratings than average
+-- 3.Books which have better user ratings than average
 
 select b.book_id, b.book_title, avg(r.ratings) as AvgRating
 from Books b
@@ -566,7 +557,7 @@ having avg(r.ratings) > (select avg(ratings) from review);
 | 6  | 12      | Rule of Wolves | 4.000000000000000000 |
 
 
-4.Most popular genre by sales
+-- 4.Most popular genre by sales
 
 select book_genre, sum(order_item.quantity) as total_sales
 from books
@@ -583,7 +574,7 @@ limit 5;
 | 4  |Mystery               | 3          |
 | 5  |Thriller              | 2          |
 
-5.10 most recent review posted by customers
+-- 5.10 most recent review posted by customers
 
 select r.review_id, r.book_id, b.book_title, r.customer_id, c.first_name, r.ratings, r.review_comment, r.review_date
 from review r
@@ -605,7 +596,7 @@ limit 10;
 |9 | 5        | 11      | If You Tell       | 105        | Mayank    | 4      | Fantastic story!           | 2022-09-22 |
 |10| 15       | 8       | Red Queen         | 115        | Kunj      | 3      | Nice Book!                 | 2022-08-20 |
 
--- ** Type script interface **
+-- Type script interface 
     
 -- connection.ts
 
@@ -741,9 +732,10 @@ async function main() {
 		  await pool.end();
 		}	
 }
-main().catch(console.error);````
+main().catch(console.error);
+````
 
--- References 
+## References 
 https://markdown.land/markdown-code-block
 https://www.typescriptlang.org/docs/handbook/interfaces.html
 
