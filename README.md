@@ -479,30 +479,39 @@ insert into review (review_id, customer_id, book_id, review_date, review_comment
 
 
 -- DDL Operations
--- Creation of database:
+
+-- Creation of database
+
    create database online_book_store;
 
--- Alter table in database:
+-- Alter table in database
+
   drop table public.books;
 
--- Drop database:
+-- Drop database
+
   drop database online_book_store;
 
 -- DML Operations/ CRUD Operation
--- Insert into customer table:
+
+-- Insert into customer table
+
 insert into customer (customer_id,first_name,last_name,contact_number,address,total_spent_amount,registration_date)  values (116,'Edward','Coolin',437-8574259,'41,Lenster street,waterloo,ON',50.70,'2024-05-25');  
--- Read from customer table:
+-- Read from customer table
+
    select * from customer where customer_id = 116;
 
--- Update into customer table:
+-- Update into customer table
+
    update customer 
 	set total_spent_amount = 100
 	where customer_id = 116;
 
--- Delete from customer table:
+-- Delete from customer table
+
   delete from customer where customer_id = 116;
 
--- Updating into orders table:
+-- Updating into orders table
 
 update orders
 set order_date = case
@@ -519,7 +528,8 @@ WHERE order_id IN (001,002,008,013,014);
 
 -- Solution of asked Requirements        
 
--- 1.Details of authers of same genre book published in the last 10 years.
+-- 1.Details of authers of same genre book published in the last 10 years
+
 select a.author_id,a.first_name,a.last_name, count(book_id) as BookCount
 from books b
 join authors a on b.author_id = a.author_id
