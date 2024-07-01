@@ -208,7 +208,8 @@ insert into authors (author_id,first_name,last_name,email_address)
 
 ### publishers table
 
-``insert into publishers (publisher_id,publisher_name)
+````SQL
+insert into publishers (publisher_id,publisher_name)
 		values (1,'Penguin Publishing Group'),
 			(2, 'Red Tower Books'),
                		(3,'HarperCollins'),
@@ -232,7 +233,7 @@ insert into authors (author_id,first_name,last_name,email_address)
  			(21,'Collins'),
  			(22,'HarperCollins'),
  			(23,'First Second'),
- 			(24,'Well Said Press');``
+ 			(24,'Well Said Press');````
 
 |publisher_id  | publisher_name                 |
 |--------------|--------------------------------|
@@ -263,7 +264,8 @@ insert into authors (author_id,first_name,last_name,email_address)
 
 ### books table
 
-``insert into books (book_id,book_title,book_genre,book_type,publication_date,price,author_id,publisher_id,isbn)
+````SQL
+insert into books (book_id,book_title,book_genre,book_type,publication_date,price,author_id,publisher_id,isbn)
               values (1,'Funny Story','Romance','physical','2022-01-01',4.31,1,1,'978-0593441282'),
                      (2,'Fourth wing','Fantacy','physical','2023-05-02',24,2,2,'9781649374042'),
                      (3,'Bridge to Terabithia','Fiction','audio book','2017-05-02',10.0,3,3,'9780064401845'),
@@ -287,7 +289,7 @@ insert into authors (author_id,first_name,last_name,email_address)
 		     (21,'Aint Misbehavin','Non-fiction','Audio book','2014-03-25',21.0,21,21,'978-1443427609'),
 		     (22,'Garbage Delight','Poetry','Physical book','2012-05-22',10.79,22,22,'978-1443411554'),
 		     (23,'This Was Our Pact','Graphic','e-book','2019-06-11',21.99,23,23,'978-1626720534'),
-		     (24,'The Secret Lake','Adventure Fiction','Audio book','2011-08-04',10.55,24,24,'978-0956932303');``
+		     (24,'The Secret Lake','Adventure Fiction','Audio book','2011-08-04',10.55,24,24,'978-0956932303');````
 
 | book_id | book_title                | book_genre         | book_type     | publication_date | price | author_id | Publisher_id | isbn           |
 |---------|---------------------------|--------------------|---------------|------------------|-------|-----------|--------------|----------------|
