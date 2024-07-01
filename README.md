@@ -262,9 +262,7 @@ insert into publishers (publisher_id,publisher_name)
 | 23           | First Second (duplicated)      |
 | 24           | Well Said Press                |
 
-### books table
-
-````SQL
+-- books table
 insert into books (book_id,book_title,book_genre,book_type,publication_date,price,author_id,publisher_id,isbn)
               values (1,'Funny Story','Romance','physical','2022-01-01',4.31,1,1,'978-0593441282'),
                      (2,'Fourth wing','Fantacy','physical','2023-05-02',24,2,2,'9781649374042'),
@@ -289,7 +287,7 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
 		     (21,'Aint Misbehavin','Non-fiction','Audio book','2014-03-25',21.0,21,21,'978-1443427609'),
 		     (22,'Garbage Delight','Poetry','Physical book','2012-05-22',10.79,22,22,'978-1443411554'),
 		     (23,'This Was Our Pact','Graphic','e-book','2019-06-11',21.99,23,23,'978-1626720534'),
-		     (24,'The Secret Lake','Adventure Fiction','Audio book','2011-08-04',10.55,24,24,'978-0956932303');````
+		     (24,'The Secret Lake','Adventure Fiction','Audio book','2011-08-04',10.55,24,24,'978-0956932303');
 
 | book_id | book_title                | book_genre         | book_type     | publication_date | price | author_id | Publisher_id | isbn           |
 |---------|---------------------------|--------------------|---------------|------------------|-------|-----------|--------------|----------------|
@@ -319,9 +317,9 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
 | 24      | The Secret Lake           | Adventure Fiction  | Audio book    | 2019-06-11       | 10.55 | 24        | 24           | 978-0956932303 |
 
 
-### customer table
+-- customer table
 
-``insert into customer (customer_id,first_name,last_name,contact_number,address,total_spent_amount,registration_date)
+insert into customer (customer_id,first_name,last_name,contact_number,address,total_spent_amount,registration_date)
 		 values (101,'Akida','Aazam',437-9632145,'41,king street,waterloo,ON',700.70,'2010-01-25'),  
    			(102,'Prachi','Thakral',437-1236985,'48,erb street,waterloo,ON',500.50,'2011-02-20'),
 			(103,'Divtej','Singh',752-1239687,'56,philip street,waterloo,ON',300.30,'2012-03-27'),
@@ -336,7 +334,7 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
  			(112,'David','Wilson',958-4578961,'90,regina street,toronto,ON',400.30,'2023-03-30'),
 			(113,'Kiara','Davis',452-7854963,'98,Columbia street,Hamilton,ON',600.60,'2022-12-27'),
  			(114,'Nayra','Patinson',658-5285749,'86,Linclon street,Brandford,ON',250.70,'2023-05-03'),
-  			(115,'Kunj','Singh',124-8574961,'89,water street,Cambridge,ON',374.17,'2022-11-11');``
+  			(115,'Kunj','Singh',124-8574961,'89,water street,Cambridge,ON',374.17,'2022-11-11');
 
 | customer_id | first_name | last_name | contact_number | address                        | total_spent_amount | registration_date |
 |:-----------:|:----------:|:---------:|:--------------:|:------------------------------:|:------------------:|:-----------------:|
@@ -356,9 +354,9 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
 | 114         | Nayra      | Patinson  | 658-5285749    | 86,Linclon street,Brandford,ON | 250.70             | 2023-05-03        |
 | 115         | Kunj       | Singh     | 124-8574961    | 89,water street,Cambridge,ON   | 374.17             | 2022-11-11        |
 
-### orders table
+-- orders table
 
-``insert into orders (order_id, customer_id, order_date, bill_amount)
+insert into orders (order_id, customer_id, order_date, bill_amount)
                values (001,101,'2023-01-25',100.11),
                       (002,102,'2022-02-02',50.11),
 		      (003,103,'2021-03-14',120.10),
@@ -373,7 +371,7 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
 		      (012,112,'2018-12-12',40.40),
 		      (013,113,'2023-01-13',111.11),
 		      (014,114,'2022-02-22',99.99),
-		      (015,115,'2021-02-19',130.13);``
+		      (015,115,'2021-02-19',130.13);
 
 | order_id | customer_id | order_date | bill_amount |
 |:--------:|:-----------:|:----------:|:-----------:|
@@ -394,9 +392,9 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
 | 015      | 115         | 2021-02-19 | 130.13      |
 
 
-### order_item table
+-- order_item table
 
-``insert into order_item (order_item_id, order_id, book_id, quantity, price)
+insert into order_item (order_item_id, order_id, book_id, quantity, price)
 	values (01, 001, 2, 2, 48),
 		(02, 002, 5, 1, 16),
 		(03, 003, 3, 2, 20),
@@ -411,7 +409,7 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
 		(12, 012, 21, 2, 42),
 		(13, 013, 16, 3, 51),
 		(14, 014, 9, 4, 140),
-		(15, 015, 8, 2, 40);``
+		(15, 015, 8, 2, 40);
 
 | order_item_id | order_id | book_id | quantity | price  |
 |:-------------:|:--------:|:-------:|:--------:|:------:|
@@ -431,9 +429,9 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
 | 14            | 014      | 9       | 4        | 140.00 |
 | 15            | 015      | 8       | 2        | 40.00  |
 
-### review table
+-- review table
 
-``insert into review (review_id, customer_id, book_id, review_date, review_comment, ratings)
+insert into review (review_id, customer_id, book_id, review_date, review_comment, ratings)
  		values (1,101,2,'2023-09-25','Excellent Book!',4),
 	               (2,102,5,'2023-01-02','Nice Book!',3),
 	               (3,103,3,'2022-05-15','Quite slow!',2),
@@ -448,7 +446,7 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
 	   		(12,112,21,'2019-12-12','Quite slow!',2),
 	   		(13,113,16,'2023-07-15','Nice book to Recommend',5),
 	   		(14,114,9,'2023-01-27','Excellent Book!',4),
-	   		(15,115,8,'2022-08-20','Nice Book!',3);``
+	   		(15,115,8,'2022-08-20','Nice Book!',3);
 
 | review_id | customer_id | book_id | review_date | review_comment         | ratings |
 | 1         | 101         | 2       | 2023-09-25  | Excellent Book!        | 4       |
@@ -468,43 +466,42 @@ insert into books (book_id,book_title,book_genre,book_type,publication_date,pric
 | 15        | 115         | 8       | 2022-08-20  | Nice Book!             | 3       |
 
 
-➡️## DDL Operations
+-- DDL Operations
 
 1.Creation of database:
 
-``create database online_book_store;``
+create database online_book_store;
 
 2.Alter table in database:
 
-``drop table public.books;``
+drop table public.books;
 
 3.Drop database:
 
-``drop database online_book_store;``
+drop database online_book_store;
 
-➡️## DML Operations/ CRUD Operation
+-- DML Operations/ CRUD Operation
 
 1.Insert into customer table:
 
-```insert into customer (customer_id,first_name,last_name,contact_number,address,total_spent_amount,registration_date)  values (116,'Edward','Coolin',437-8574259,'41,Lenster street,waterloo,ON',50.70,'2024-05-25'); ``` 
-
+insert into customer (customer_id,first_name,last_name,contact_number,address,total_spent_amount,registration_date)  values (116,'Edward','Coolin',437-8574259,'41,Lenster street,waterloo,ON',50.70,'2024-05-25');  
 2.Read from customer table:
 
-``select * from customer where customer_id = 116;``
+select * from customer where customer_id = 116;
 
 3.Update into customer table:
 
-``update customer 
+update customer 
 	set total_spent_amount = 100
-	where customer_id = 116;``
+	where customer_id = 116;
 
 4.Delete from customer table:
 
-``delete from customer where customer_id = 116;``
+delete from customer where customer_id = 116;
 
 • Updating into orders table:
 
-``update orders
+update orders
 set order_date = case
    	 when order_id = 001 then '2023-12-31'
     	when order_id = 002 then '2024-01-01'
@@ -513,18 +510,17 @@ set order_date = case
 	when order_id = 014 then '2023-09-11'
     ELSE order_date
 END
-WHERE order_id IN (001,002,008,013,014);``
+WHERE order_id IN (001,002,008,013,014);
 
-➡️## Solution of asked Requirements        
+-- Solution of asked Requirements        
 
 1.Details of authers of same genre book published in the last 10 years.
-
-``select a.author_id,a.first_name,a.last_name, count(book_id) as BookCount
+select a.author_id,a.first_name,a.last_name, count(book_id) as BookCount
 from books b
 join authors a on b.author_id = a.author_id
 where b.book_genre = 'Fantasy' and publication_date >= current_date - interval '10 years'
 group by a.author_id,a.first_name,a.last_name
-having count(b.book_id) > 0;``
+having count(b.book_id) > 0;
 
 | ID | author_id | first_name | last_name | bookcount|
 |:--:|:---------:|:----------:|:---------:|:--------:|
@@ -535,12 +531,12 @@ having count(b.book_id) > 0;``
 
 2.Loyal customer who has spent more than $51 in the last year
 
-``select c.customer_id, c.first_name, c.last_name, sum(o.bill_amount) as TotalSpent
+select c.customer_id, c.first_name, c.last_name, sum(o.bill_amount) as TotalSpent
 from customer c
 join orders o on c.customer_id = o.customer_id
 where o.order_date >= current_date - interval '1 year'
 group by c.customer_id
-having sum(o.bill_amount) > 51;``
+having sum(o.bill_amount) > 51;
 
 
 | ID | customer_id | first_name | last_name | totalspent |
@@ -554,11 +550,11 @@ having sum(o.bill_amount) > 51;``
 
 3.Books which have better user ratings than average
 
-``select b.book_id, b.book_title, avg(r.ratings) as AvgRating
+select b.book_id, b.book_title, avg(r.ratings) as AvgRating
 from Books b
 join review r on b.book_id = r.book_id
 group by b.book_id
-having avg(r.ratings) > (select avg(ratings) from review);``
+having avg(r.ratings) > (select avg(ratings) from review);
 
 | ID | book_id | book_title     | avgrating            |
 |:--:|:-------:|:--------------:|:--------------------:|
@@ -572,12 +568,12 @@ having avg(r.ratings) > (select avg(ratings) from review);``
 
 4.Most popular genre by sales
 
-``select book_genre, sum(order_item.quantity) as total_sales
+select book_genre, sum(order_item.quantity) as total_sales
 from books
 join order_item on books.book_id = order_item.book_id
 group by book_genre
 order by total_sales desc
-limit 5;``
+limit 5;
 
 | ID | Book_genre           | total_sales|
 |----|----------------------|------------|
@@ -589,12 +585,12 @@ limit 5;``
 
 5.10 most recent review posted by customers
 
-``select r.review_id, r.book_id, b.book_title, r.customer_id, c.first_name, r.ratings, r.review_comment, r.review_date
+select r.review_id, r.book_id, b.book_title, r.customer_id, c.first_name, r.ratings, r.review_comment, r.review_date
 from review r
 join books b on r.book_id = b.book_id
 join customer c on r.customer_id = c.customer_id
 order by r.review_date desc
-limit 10;``
+limit 10;
 
 |ID|review_id | book_id | book_title        |customer_id |first_name |ratings |review_comments             |review_date |
 |--|----------|---------|-------------------|------------|-----------|--------|----------------------------|------------|
@@ -609,11 +605,11 @@ limit 10;``
 |9 | 5        | 11      | If You Tell       | 105        | Mayank    | 4      | Fantastic story!           | 2022-09-22 |
 |10| 15       | 8       | Red Queen         | 115        | Kunj      | 3      | Nice Book!                 | 2022-08-20 |
 
-➡️## Type script interface
+-- ** Type script interface **
     
-💠###connection.ts
+-- connection.ts
 
-``import { Pool } from 'pg';
+import { Pool } from 'pg';
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
@@ -624,11 +620,11 @@ const pool = new Pool({
 pool.on('connect', (client) => {
   client.query('SET search_path TO public');
 });
-export default pool;``
+export default pool;
 
-💠### customer.ts
+-- customer.ts
 
-``import { Pool, QueryResult } from 'pg';
+import { Pool, QueryResult } from 'pg';
    import pool from './connection';
    const TABLE_NAME = 'public.customer';
    export interface customer_detail {
@@ -676,11 +672,11 @@ export class customer_store implements customers {
 	const result: QueryResult = await this.pool.query(query, [customer_id]);
 	return result.rowCount !== null && result.rowCount > 0; 
 	}
-}``
+}
 
-💠### customer_crud_operation.ts
+-- customer_crud_operation.ts
 
-``import pool from './connection';
+import pool from './connection';
         import { customer_store, customer_detail } from './customer';
         async function checkDatabaseAndTable() {
 	const client = await pool.connect();
@@ -747,7 +743,7 @@ async function main() {
 }
 main().catch(console.error);````
 
-➡️## References 
+-- References 
 https://markdown.land/markdown-code-block
 https://www.typescriptlang.org/docs/handbook/interfaces.html
 
