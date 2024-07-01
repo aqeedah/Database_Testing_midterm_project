@@ -178,6 +178,7 @@ insert into authors (author_id,first_name,last_name,email_address)
 			(23,'Ryan','Andrews','ryan1994@gmail.com'),
 			(24,'Karen','Inglis','kpinglis@press.com');
 
+--This is sample data table of auther
 
 | author_id | first_name | last_name, | email_address        |
 |-----------|------------|------------|----------------------|
@@ -206,9 +207,8 @@ insert into authors (author_id,first_name,last_name,email_address)
 | 23        | Ryan       | Andrews    | ryan1994@gmail.com   |
 | 24        | Karen      | Inglis     | kpinglis@press.com   |
 
-### publishers table
+--publishers table
 
-````SQL
 insert into publishers (publisher_id,publisher_name)
 		values (1,'Penguin Publishing Group'),
 			(2, 'Red Tower Books'),
@@ -233,7 +233,7 @@ insert into publishers (publisher_id,publisher_name)
  			(21,'Collins'),
  			(22,'HarperCollins'),
  			(23,'First Second'),
- 			(24,'Well Said Press');````
+ 			(24,'Well Said Press');
 
 |publisher_id  | publisher_name                 |
 |--------------|--------------------------------|
